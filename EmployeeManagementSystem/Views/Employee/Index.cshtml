@@ -15,8 +15,7 @@
     <thead>
         <tr>
             <th scope="col">@Html.DisplayNameFor(model => model.EmployeeNumber)</th>
-            <th scope="col">@Html.DisplayNameFor(model => model.FirstName)</th>
-            <th scope="col">@Html.DisplayNameFor(model => model.LastName)</th>
+            <th>Full Name</th>
             <th scope="col">@Html.DisplayNameFor(model => model.DateOfBirth)</th>
             <th scope="col">@Html.DisplayNameFor(model => model.ContactNumber)</th>
             <th scope="col">@Html.DisplayNameFor(model => model.EmailAddress)</th>
@@ -29,8 +28,7 @@
         {
             <tr>
                 <td>@Html.DisplayFor(modelItem => item.EmployeeNumber)</td>
-                <td>@Html.DisplayFor(modelItem => item.FirstName)</td>
-                <td>@Html.DisplayFor(modelItem => item.LastName)</td>
+                <td>@(item.FirstName + " " + item.LastName)</td>
                 <td>@Html.DisplayFor(modelItem => item.DateOfBirth)</td>
                 <td>@Html.DisplayFor(modelItem => item.ContactNumber)</td>
                 <td>@Html.DisplayFor(modelItem => item.EmailAddress)</td>
