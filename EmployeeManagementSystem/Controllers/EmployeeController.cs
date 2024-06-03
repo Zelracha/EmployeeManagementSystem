@@ -15,6 +15,7 @@ namespace EmployeeManagementSystem.Controllers
         // GET: Employee
         public ActionResult Index()
         {
+            // Get all of the Employee list
             return View(toDb.Employees.ToList());
         }
 
@@ -62,10 +63,10 @@ namespace EmployeeManagementSystem.Controllers
                         return View("ManageEmp", pEmployee);
                     }
 
-                    // Generate the employee number for a new employee
+                    // Generate the employee number for the new employee
                     pEmployee.GenerateEmployeeNum();
 
-                    // Add a new employee
+                    // Add the new employee to the list and Database
                     toDb.Employees.Add(pEmployee);
                 }
 
@@ -83,11 +84,14 @@ namespace EmployeeManagementSystem.Controllers
         [HttpPost]
         public ActionResult Delete(int Id)
         {
+            // Find employee ID to be deleted in the database
             var _removeEmployee = toDb.Employees.Find(Id);
             if (_removeEmployee != null)
             {
+                // Remove the employee
                 toDb.Employees.Remove(_removeEmployee);
             }
+            // Save changes to the database
             toDb.SaveChanges();
             return RedirectToAction("Index");
         }
